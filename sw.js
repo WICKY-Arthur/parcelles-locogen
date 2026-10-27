@@ -2,15 +2,16 @@
 // Stratégie : Réseau d'abord (Network First) pour toujours avoir les dernières mises à jour,
 // cache en secours si on perd la connexion.
 
-const CACHE_NAME = 'locogen-v2'; // Le passage en v2 force le nettoyage de l'ancien cache !
+const CACHE_NAME = 'locogen-v3'; // Changer la version force le nettoyage de l'ancien cache !
 
 // Les fichiers de base à mettre en cache
 const STATIC_ASSETS =[
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png',
+  './',
+  './index.html',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png',
+  './logo-locogen.png',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
 ];
@@ -55,7 +56,7 @@ self.addEventListener('fetch', event => {
       .catch(() => {
         // Si pas d'internet (ou erreur réseau), on cherche dans le cache
         return caches.match(event.request).then(cached => {
-          return cached || caches.match('/'); // Fallback sur la racine
+          return cached || caches.match('./'); // Fallback sur la racine
         });
       })
   );

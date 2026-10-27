@@ -32,7 +32,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: 'Locogen <onboarding@resend.dev>', // Ne change pas ça tant que tu n'as pas de nom de domaine payant validé sur Resend
-        to: 'ton_adresse@gmail.com',             // ⚠️ METS TON ADRESSE EMAIL ICI
+        to: 'arthur.wicky@locogen.com',
         subject: `☀️ Nouveau Lead Solaire - ${body.contact.prenom} ${body.contact.nom}`,
         html: emailContent
       })
